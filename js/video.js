@@ -64,10 +64,10 @@ document.querySelector("#volume").addEventListener("click", function() {
 	}
 });
 document.querySelector("#vintage").addEventListener("click", function() {
-	video.classList.add("oldSchool");
+	video.classList.add("vintage");
 	console.log("Old School");
 });
 document.querySelector("#orig").addEventListener("click", function() {
-	video.classList.remove("oldSchool");
+	video.classList.remove("vintage");
 	console.log("Original");
 });
