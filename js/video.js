@@ -17,17 +17,13 @@ window.addEventListener("load", function() {
 });
 
 document.querySelector("#play").addEventListener("click", function() {
-    console.log("Getting play");
+    console.log("Play Video");
     video.play();
-    console.log("Getting volume");
-    console.log("Current: " + video.volume * 100 + "%");
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
     console.log("Pause Video");
     video.pause();
-    console.log("Getting paused");
-    console.log("Current: " + video.volume * 100 + "%");
 });
 
 document.querySelector("#slower").addEventListener("click", function() {
