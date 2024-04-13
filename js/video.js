@@ -24,6 +24,8 @@ document.querySelector("#play").addEventListener("click", function() {
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
+    console.log("Pause Video");
+    video.pause();
     console.log("Getting paused");
     console.log("Current: " + video.volume * 100 + "%");
 });
