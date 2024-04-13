@@ -19,6 +19,11 @@ window.addEventListener("load", function() {
     video.addEventListener("volumechange", function() {
         volumeSpan.textContent = Math.round(video.volume * 100) + "%";
     });
+
+    // Update volume display when video starts playing
+    video.addEventListener("play", function() {
+        volumeSpan.textContent = Math.round(video.volume * 100) + "%";
+    });
 });
 
 document.querySelector("#play").addEventListener("click", function() {
