@@ -13,7 +13,12 @@ window.addEventListener("load", function() {
 
     // Update volume display
     var volumeSpan = document.querySelector("#volume");
-    volumeSpan.textContent = Math.round(video.volume * 100);
+    volumeSpan.textContent = Math.round(video.volume * 100) + "%";
+
+    // Update volume display when volume changes
+    video.addEventListener("volumechange", function() {
+        volumeSpan.textContent = Math.round(video.volume * 100) + "%";
+    });
 });
 
 document.querySelector("#play").addEventListener("click", function() {
@@ -28,12 +33,12 @@ document.querySelector("#pause").addEventListener("click", function() {
 
 document.querySelector("#slower").addEventListener("click", function() {
     video.playbackRate -= video.playbackRate * 0.1;
-    console.log("Current: " + video.playbackRate);
+    console.log("Current: " + Math.round(video.playbackRate * 100) + "%");
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
     video.playbackRate += video.playbackRate * 0.1;
-    console.log("Current: " + video.playbackRate);
+    console.log("Current: " + Math.round(video.playbackRate * 100) + "%");
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
@@ -42,9 +47,9 @@ document.querySelector("#skip").addEventListener("click", function() {
         video.currentTime = targetTime;
     } else {
         video.currentTime = 0;
-        video.play();
+        video.pause(); // Pause video after skipping to the end
     }
-    console.log("Current: " + video.currentTime);
+    console.log("Current: " + Math.round(video.currentTime * 100) + "%");
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
@@ -61,18 +66,19 @@ document.querySelector("#mute").addEventListener("click", function() {
 
 document.querySelector("#slider").addEventListener("input", function() {
     video.volume = this.value / 100;
-    console.log("Current: " + this.value + "%");
+    document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
+    console.log("Current: " + Math.round(video.volume * 100) + "%");
 });
 
 document.querySelector("#volume").addEventListener("click", function() {
     if (video.volume == 0) {
         video.volume = 1;
-        document.querySelector("#volume").innerHTML = "Volume";
-        console.log("Volume is " + video.volume * 100);
+        document.querySelector("#volume").textContent = "Volume: 100%";
+        console.log("Volume is " + Math.round(video.volume * 100) + "%");
     } else {
         video.volume = 0;
-        document.querySelector("#volume").innerHTML = "Mute";
-        console.log("Volume is " + video.volume * 100);
+        document.querySelector("#volume").textContent = "Mute";
+        console.log("Volume is " + Math.round(video.volume * 100) + "%");
     }
 });
 
