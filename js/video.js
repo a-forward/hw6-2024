@@ -17,33 +17,36 @@ window.addEventListener("load", function() {
 });
 
 document.querySelector("#play").addEventListener("click", function() {
-    console.log("Play Video");
+    console.log("Getting play");
     video.play();
+    console.log("Getting volume");
+    console.log("Current: " + video.volume * 100 + "%");
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
-    console.log("Pause Video");
-    video.pause();
+    console.log("Getting paused");
+    console.log("Current: " + video.volume * 100 + "%");
 });
 
 document.querySelector("#slower").addEventListener("click", function() {
-    video.playbackRate *= 0.95;
-    console.log("New speed is " + video.playbackRate);
+    video.playbackRate -= video.playbackRate * 0.1;
+    console.log("Current: " + video.playbackRate);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
-    video.playbackRate /= 0.95;
-    console.log("New speed is " + video.playbackRate);
+    video.playbackRate += video.playbackRate * 0.1;
+    console.log("Current: " + video.playbackRate);
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-    if (video.currentTime + 15 < video.duration) {
-        video.currentTime += 15;
+    var targetTime = video.currentTime + 15;
+    if (targetTime < video.duration) {
+        video.currentTime = targetTime;
     } else {
         video.currentTime = 0;
         video.play();
     }
-    console.log("Current location " + video.currentTime);
+    console.log("Current: " + video.currentTime);
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
@@ -58,9 +61,9 @@ document.querySelector("#mute").addEventListener("click", function() {
     }
 });
 
-document.querySelector("#slider").addEventListener("change", function() {
+document.querySelector("#slider").addEventListener("input", function() {
     video.volume = this.value / 100;
-    console.log("Volume is " + video.volume * 100);
+    console.log("Current: " + this.value + "%");
 });
 
 document.querySelector("#volume").addEventListener("click", function() {
