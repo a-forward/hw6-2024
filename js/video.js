@@ -36,12 +36,12 @@ document.querySelector("#pause").addEventListener("click", function() {
 });
 
 document.querySelector("#slower").addEventListener("click", function() {
-    video.playbackRate -= video.playbackRate * 0.1;
+    video.playbackRate *= 0.9;
     console.log("Current: " + Math.round(video.playbackRate * 100) / 100);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
-    video.playbackRate += video.playbackRate * 0.1;
+    video.playbackRate /= 0.9;
     console.log("Current: " + Math.round(video.playbackRate * 100) / 100);
 });
 
