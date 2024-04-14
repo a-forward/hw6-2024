@@ -12,7 +12,7 @@ window.addEventListener("load", function() {
     console.log("Video Loop is off");
 
     var volumeSpan = document.querySelector("#volume");
-    volumeSpan.textContent = Math.round(video.volume * 100) + "%";
+    // volumeSpan.textContent = Math.round(video.volume * 100) + "%";
     var volumeSlider = document.querySelector("#slider");
 
     video.addEventListener("volumechange", function() {
