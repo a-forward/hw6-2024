@@ -21,7 +21,7 @@ window.addEventListener("load", function() {
 
     video.addEventListener("play", function() {
         volumeSpan.textContent = Math.round(video.volume * 100) + "%";
-        volumeSlider.value = video.volume;
+        volumeSlider.value = video.volume * 100;
     });
 });
 
