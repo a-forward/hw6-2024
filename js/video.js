@@ -11,16 +11,13 @@ window.addEventListener("load", function() {
     video.loop = false;
     console.log("Video Loop is off");
 
-    // Update volume display
     var volumeSpan = document.querySelector("#volume");
     volumeSpan.textContent = Math.round(video.volume * 100) + "%";
 
-    // Update volume display when volume changes
     video.addEventListener("volumechange", function() {
         volumeSpan.textContent = Math.round(video.volume * 100) + "%";
     });
 
-    // Update volume display when video starts playing
     video.addEventListener("play", function() {
         volumeSpan.textContent = Math.round(video.volume * 100) + "%";
     });
