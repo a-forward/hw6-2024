@@ -46,7 +46,7 @@ document.querySelector("#faster").addEventListener("click", function() {
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-    var targetTime = video.currentTime + 15;
+    var targetTime = video.currentTime + 10;
     if (targetTime < video.duration) {
         video.currentTime = targetTime;
     } else {
