@@ -13,6 +13,7 @@ window.addEventListener("load", function() {
 
     var volumeSpan = document.querySelector("#volume");
     volumeSpan.textContent = Math.round(video.volume * 100) + "%";
+    var volumeSlider = document.querySelector("#slider");
 
     video.addEventListener("volumechange", function() {
         volumeSpan.textContent = Math.round(video.volume * 100) + "%";
@@ -20,6 +21,7 @@ window.addEventListener("load", function() {
 
     video.addEventListener("play", function() {
         volumeSpan.textContent = Math.round(video.volume * 100) + "%";
+        volumeSlider.value = video.volume;
     });
 });
 
